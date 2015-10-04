@@ -1,4 +1,4 @@
-[ Index ](../syllabus.md)
+[ Index ](../README.md)
 
 # Storage
 
@@ -259,4 +259,4 @@
     ```
 
 
-[ Index ](../syllabus.md)
+[ Index ](../README.md)

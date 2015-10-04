@@ -1,6 +1,6 @@
-[ Index ](../syllabus.md)
+[ Index ](../README.md)
 
-# Enough JavaScript to be Dangerous
+# Surviving in the Wild
 
 ## When is JavaScript... not JavaScript?
 
@@ -320,4 +320,4 @@ _
 * [Learn ES2015](https://babeljs.io/docs/learn-es2015/)
 * [Exploring ES6 (free online book)](http://exploringjs.com/es6/)
 
-[ Index ](../syllabus.md)
+[ Index ](../README.md)

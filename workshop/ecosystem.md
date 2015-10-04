@@ -1,4 +1,4 @@
-[ Index ](../syllabus.md)
+[ Index ](../README.md)
 
 # Ecosystem
 
@@ -363,4 +363,4 @@
 
 * [Jasmine vs. Mocha, Chai, and Sinon](http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html)
 
-[ Index ](../syllabus.md)
+[ Index ](../README.md)

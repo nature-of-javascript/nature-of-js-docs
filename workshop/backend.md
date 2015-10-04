@@ -1,4 +1,4 @@
-[ Index ](../syllabus.md)
+[ Index ](../README.md)
 
 # Backend
 
@@ -145,5 +145,4 @@
     });
     ```
 
-
-[ Index ](../syllabus.md)
+[ Index ](../README.md)

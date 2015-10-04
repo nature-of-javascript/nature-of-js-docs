@@ -1,6 +1,6 @@
-[ Index ](../syllabus.md)
+[ Index ](../README.md)
 
-# Strategic Overview
+# The Landscape
 
 ## Why JavaScript?
 
@@ -71,4 +71,4 @@
 
 * [JavaScript will lead a massive shift in enterprise development](http://www.infoworld.com/article/2907190/javascript/javascript-will-lead-a-massive-shift-in-enterprise-development.html)
 
-[ Index ](../syllabus.md)
+[ Index ](../README.md)
