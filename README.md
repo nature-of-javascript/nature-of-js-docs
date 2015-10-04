@@ -1,2 +1,2 @@
-# docs
-The syllabus, learning objectives and associated workshop documentation.
+# js-api-workshop
+A workshop focused on JavaScript and web APIs
