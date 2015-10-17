@@ -1,3 +1,15 @@
+The Nature of JavaScript :: Docs
+=======================================
+
+This workshop is aimed at developers who are proficient in other _curly bracket_ languages and are interested to understand the current JavaScript ecosystem such as:
+
+* The fundamental philosophies of the platforms and the community
+* The concepts of the language that are unique to JavaScript
+* How the language has evolved and continues to evolve
+* The common tools for building and testing 
+
+We cover a lot of information throughout the day and the short amount of time we have together prevents us from going too deep in any particular area. The day is designed to provide a launch point for more inquiry and learning. We'll take a broad thin slice of the language and its ecosystem that will hopefully generate an excitement to learn more afterwards.
+
 1. [ The JavaScript Landscape ](workshop/landscape.md)
   1. [Why JavaScript?]( workshop/landscape.md#why-javascript )
   2. [Why Not JavaScript?]( workshop/landscape.md#why-not-javascript )
