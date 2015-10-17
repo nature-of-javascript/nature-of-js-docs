@@ -25,6 +25,8 @@
     ```
 
   * Here, `i` is available anywhere within `foo`
+  * https://jsbin.com/memopi/edit?js,console
+
   * In the past, was often recommended that `var` statements occur at the beginning of functions to avoid unwelcome surprises caused by this behaviour
     * With _ES6_, `var` can largely be replaced by `let`
   * The [`let`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) keyword restricts scope to its block, statement or expression:
@@ -36,6 +38,7 @@
       console.log(i); // undefined
     }
     ```
+  * https://jsbin.com/warevab/edit?js,console
 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) creates a reference to a value that cannot be altered:
     
@@ -45,6 +48,8 @@
       n++;            // TypeError: assignment to constant variable
     }
     ```
+
+  * https://jsbin.com/jizivi/1/edit?js,console
 
 ## Closures
 
@@ -62,24 +67,25 @@
       }
     }
 
-    let bar = foo();
-    bar();              // 1
-    bar();              // 2
-    bar();              // 3
+    let baz = foo();
+    baz();              // 1
+    baz();              // 2
+    baz();              // 3
 
     let wombat = foo();
     wombat();           // 1
-    bar();              // 4
+    baz();              // 4
     ```
 
   * Here, `n` remains "alive" and can be modified after `foo` exits. 
   * Each call to `foo` creates a new _closure_, with its own local copy of `n`.
+  * https://jsbin.com/cibibe/1/edit?js,console
 
 
 ## `this`
 
 * In _ES6_ the value of `this` is fairly predictable
-  * Watch out for legacy JS, where it can unexpectedly default to the window object and lead to some difficult to debug behaviour
+  * Watch out for legacy JS, where it can unexpectedly default to the window object and lead to some unintuitive behaviour
   * Best practice is to _be explicit_: never assume that the next developer to read your code understands the nuances of `this`
   * Think _functionally_: avoid altering global or object level state
 
@@ -186,16 +192,17 @@
       console.log(`I see ${this.count} aardvarks.`);
     };
 
-    let firstCounter = AardvarkCounter(11);
-    let secondCounter = AardvarkCounter(1337);
+    let firstCounter = new AardvarkCounter(11);
+    let secondCounter = new AardvarkCounter(1337);
 
     firstCounter.aardvarks();  // "I see 11 aardvarks."
     secondCounter.aardvarks(); // "I see 1337 aardvarks."
     ```
+* https://jsbin.com/kohese/1/edit?js,console
 
 * Functions declared on the prototype are shared between all objects with that prototype
 * Many libraries include the ability to copy properties from one object to another
-* One example using [Underscore](http://underscorejs.org): [`extend`](http://underscorejs.org/#extend)
+* For example, using [Underscore's](http://underscorejs.org) [`extend`](http://underscorejs.org/#extend):
 
     ```js
     let foo = {
@@ -216,54 +223,59 @@
 
 ## Modules and Imports
 
-* To make a property, function, or object available for use outside its own file (_module_), we use the [ `export` ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) keyword:
+* To make a property, function, or object available outside its own file (_module_), prefix it with the [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) keyword:
 _
     ```js
     // wombats.js
 
-    export showWombats() {
+    export const metabolism = 4;
+
+    export function showWombats() {
       // ...
-    }
+    };
     ```
 
 * To make use of this in another module, we use [ `import` ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). The following will all make `showWombats` available:
 
     ```js
-    import wombats from 'wombats.js';             // Import the entire module
-    import {showWombats} from 'wombats.js';       // Just one function
-    import {showWombats as sw} from 'wombats.js'; // Same as above, but give it a shorter alias
+    import wombats from './wombats.js';             // Import the entire module
+    import {showWombats} from './wombats.js';       // Just one function
+    import {showWombats as sw} from './wombats.js'; // Same as above, but give it a shorter alias
     ```
 
   * In the first statement, `showWombats` would be referred to as `wombats.showWombats`
+  * https://gist.github.com/locksmithdon/96fb0ae2904f86c86e66
 
 
 ## Underscore and Lo-Dash
 
-* If you've ever wished that JavaScript had _X_ feature from Ruby, chances are it (or something like it) is provided by a utility library
-* Utility libraries act as extensions to the JavaScript standard library, providing consistent and well-tested ways to interact with 
-* Two of the most popular are [ Underscore ](http://underscorejs.org) and its API-compatible alternative, [ Lo-Dash ](http://lodash.com)
-  * The question of which one to use has gotten quite political, and beyond our scope here. Either one will run the examples.
+* If you've ever wished that JavaScript had <em>X</em> feature from another language, chances are it (or something like it) is provided by a utility library
+* One of the key roles of a utility library is making it simpler, more expressive, and less error-prone to work with data structures (an array, object, or string).
+* Utility libraries act as extensions to the JavaScript standard library, providing consistent and well-tested ways to interact with data structures.
+* The two most popular are [ Underscore ](http://underscorejs.org) and its API-compatible alternative, [ Lo-Dash ](http://lodash.com)
+  - The question of which one to use has gotten quite political, and beyond our scope here. Either one will run the examples.
 
-* One of the key roles of a utility library is making it simpler, more expressive, and less error-prone to work with containers (an array, object, or string). Instead of this:
+* Given an array:
 
     ```js
     let aardvarks = ["Snuffler", "Stinker", "Slappy", "Sadface"];
+    ```
+
+* You could do this:
+
+    ```js
     for (let i = 0; i < aardvarks.length; i++) {
       console.log(aardvarks[i]);
     }
     ```
 
-* Equivalent Underscore or Lo-Dash code might look like this:
+* Or this:
 
     ```js
-    _.each(aardvarks, display); // Do something once for each element in the container
-
-    function display(aardvark) {
-      console.log(aardvark);
-    }
+    _.each(aardvarks, console.log);
     ```
 
-* Here's another common use case: checking to see if an object has a particular property
+* Checking to see if an object has a particular property is another common use case:
 
     ```js
     let wombat = {
@@ -300,7 +312,7 @@ _
     ```
 
 * Why not use the standard library version? 
-  * The same approach to work with anything that can be treated as a container (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.
+  * Allows us to use the same approach whenever working with any data structures (objects, strings, and arrays), so we don't need to explicitly convert to array and back again. This can give our code consistency and readibility.
   * In some circumstances, the library will default to the native version if it's known to be faster in a given environment.
 
 
