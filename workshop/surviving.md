@@ -238,9 +238,9 @@ _
 * To make use of this in another module, we use [ `import` ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). The following will all make `showWombats` available:
 
     ```js
-    import wombats from './wombats.js';             // Import the entire module
-    import {showWombats} from './wombats.js';       // Just one function
-    import {showWombats as sw} from './wombats.js'; // Same as above, but give it a shorter alias
+    import wombats from './wombats';             // Import the entire module
+    import {showWombats} from './wombats';       // Just one function
+    import {showWombats as sw} from './wombats'; // Same as above, but give it a shorter alias
     ```
 
   * In the first statement, `showWombats` would be referred to as `wombats.showWombats`
