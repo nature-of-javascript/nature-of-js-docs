@@ -2,15 +2,16 @@
 
 # Ecosystem
 
-* JavaScript tooling is improving, but it also suffers from churn as millions of developers add their two cents on what the environment should look like, both client and server-side.
-* We couldn't possibly present an exhaustive overview of the ecosystem, but we think the following tools are mandatory for most professionals to at least be familiar with.
+Today, the JavaScript ecosystem is in a constant state of ... innovation ... as millions of developers contribute to client-side and server-side libraries and tools.
+
+We couldn't possibly present an exhaustive overview of the ecosystem, but we think the following tools are mandatory for most JavaScript developers to at least be familiar with.
 
 ## npm
 
 * Since its release in 2009, the [Node package manager](https://www.npmjs.com) has become one of the most prolific package managers in the world 
 * Share packaged modules of JavaScript code
 * Stipulate versions (or version ranges) for package dependencies
-* npm Registry contains a huge collection of modules 
+* npm Registry contains over 195,000 modules: the largest of all package repositories 
 * Can install packages _locally_ or _globally_
 * Controlled by `package.json`:
 
@@ -82,15 +83,15 @@
         "tests"
       ],
       "dependencies": {
-        jquery: "~2.1.4",
-        lodash: "~3.10.1"
+        "jquery": "~2.1.4",
+        "lodash": "~3.10.1"
       }
     }
     ```
 
 * The above or something very like it would be generated with the following terminal commands:
 
-    ```
+    ```bash
     npm i bower --save-dev
     bower init
     bower install jquery lodash --save
@@ -115,7 +116,7 @@
 * Uses node streams
   * Reads source files, pipes the text through plugins, and writes output
 * Wide variety of plugins: uses [npm](#npm) packages
-* Compare [Grunt](http://gruntjs.com), another widely-used task runner
+* Compares to [Grunt](http://gruntjs.com), another widely-used task runner
 
 * Controlled with `gulpfile.js`. For example:
 
@@ -215,9 +216,9 @@
       describe('GET /', function() {
 
         it('responds with HTTP status 200', function() {
-          
-           // TODO: find better test examples!
-
+          request.get(base_url, function(error, response, body) {
+            expect(response.statusCode.toBe(200));
+          });
         });
 
       });
